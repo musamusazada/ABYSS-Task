@@ -7,7 +7,7 @@ const MainPanel = (props: Props) => {
   return (
     <div className="panel pos-rel h-90vh">
       <PanControls />
-      <Tree title="Categories" />
+      <Tree />
     </div>
   );
 };

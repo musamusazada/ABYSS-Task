@@ -1,15 +1,31 @@
 import { useEffect, useState } from "react";
-import Button from "../../../UI/Button/Button";
-import { plus } from "../../../icons/index";
+
 import classes from "./index.module.css";
-type Props = {
+import TreeItem from "./TreeItem";
+type Props = {};
+
+interface TreeItemType {
+  id: number;
   title: string;
-};
+  isReadOnly: boolean;
+  color: string;
+  create: boolean;
+  update: boolean;
+  delete: boolean;
+}
 
 const Tree: React.FC<Props> = (props: Props) => {
   //Updating positions to trigger render
   const [leftPos, setLeftPos] = useState(0);
   const [topPos, setTopPos] = useState(0);
+
+  //Tree Data
+  const [treeData, setTreeData] = useState({
+    title: "Categories",
+    isReadOnly: true,
+    create: true,
+    categories: [],
+  });
 
   useEffect(() => {
     //Whole panel element
@@ -39,16 +55,37 @@ const Tree: React.FC<Props> = (props: Props) => {
       tree?.removeEventListener("mousedown", handleMouseDown);
     };
   }, []);
+
+  useEffect(() => {
+    console.log("Update Happened");
+  }, [treeData]);
   return (
     <div
       style={{
         left: leftPos ? leftPos + "px" : "50%",
         top: topPos ? topPos + "px" : "50%",
       }}
-      className={classes.tree + " tree flex align-middle"}
+      className={classes.tree + " tree flex column align-middle gap-40"}
     >
-      <p>{props.title}</p>
-      <Button classes="crud-action" content={plus()} />
+      <TreeItem
+        treeData={treeData}
+        setTreeData={setTreeData}
+        title={treeData.title}
+        classes={classes.dashed}
+        isReadOnly={treeData.isReadOnly}
+        create={treeData.create}
+      />
+      {treeData.categories.length > 0 &&
+        treeData.categories.map((el: TreeItemType) => (
+          <TreeItem
+            treeData={treeData}
+            setTreeData={setTreeData}
+            key={el.id}
+            classes={classes.solid + " vertical-line " + el.color}
+            wrapperClass="vertical-line"
+            {...el}
+          />
+        ))}
     </div>
   );
 };

@@ -22,6 +22,11 @@ body {
   background-color: #706bd4 !important;
 }
 
+.orange {
+  background-color: orangered;
+  color: #fff;
+}
+
 .container {
   margin: 20px 100px 0 100px;
   max-width: 100%;
@@ -70,6 +75,9 @@ body {
   align-items: end;
 }
 
+.gap-40 {
+  gap: 40px;
+}
 .pos-rel {
   position: relative;
 }
@@ -101,6 +109,22 @@ body {
 .crud-action {
   border-radius: 50%;
   background: transparent !important;
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
+  min-width: 25px;
+  padding: 0;
+}
+.vertical-line {
+  position: relative;
+}
+.vertical-line::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 1px;
+  height: 40px;
+  top: -114%;
+  left: 45%;
+  transform: translateX(-50%);
+  background-color: var(--light-gray);
 }
