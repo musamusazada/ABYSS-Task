@@ -1,0 +1,59 @@
+:root {
+  --dark-gray: #8e9aaf;
+  --light-gray: #cbc0d3;
+  --hover: #dedede;
+  --indicator: #ffc300;
+  --main: #3f37c9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f8f9fa;
+}
+.primary-bg {
+  background-color: var(--main) !important;
+}
+
+.container {
+  margin: 20px 100px 0 100px;
+  max-width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: end;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.align-middle {
+  align-items: center;
+}
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: end;
+}

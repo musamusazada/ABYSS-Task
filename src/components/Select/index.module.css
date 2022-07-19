@@ -1,0 +1,11 @@
+.select__box {
+  cursor: pointer;
+  background: #fff;
+  color: var(--dark-gray);
+  font-size: 1rem;
+  min-width: 70px;
+  padding: 0 5px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
