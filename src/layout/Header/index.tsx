@@ -21,9 +21,7 @@ const Header = (props: Props) => {
         </div>
       </div>
       <div className={classes.header__actions}>
-        {props.actions.map((el) => (
-          <Fragment key={Math.random() * 100}>{el}</Fragment>
-        ))}
+        {props.actions.map((el) => el)}
       </div>
     </header>
   );
