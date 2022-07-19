@@ -98,3 +98,9 @@ body {
   right: 0;
   transform: translateY(-50%);
 }
+.crud-action {
+  border-radius: 50%;
+  background: transparent !important;
+  width: 45px;
+  height: 45px;
+}

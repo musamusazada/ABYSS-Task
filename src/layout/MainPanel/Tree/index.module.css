@@ -1,0 +1,18 @@
+.tree {
+  background: #fff;
+  border: 1px dashed var(--light-gray);
+  padding: 10px;
+  display: inline-flex !important;
+  cursor: move !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tree p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

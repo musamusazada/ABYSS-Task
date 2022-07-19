@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import classes from "./index.module.css";
 type Props = {
   title: string;
@@ -20,7 +21,9 @@ const Header = (props: Props) => {
         </div>
       </div>
       <div className={classes.header__actions}>
-        {props.actions.map((el) => el)}
+        {props.actions.map((el) => (
+          <Fragment key={Math.random() * 100}>{el}</Fragment>
+        ))}
       </div>
     </header>
   );
