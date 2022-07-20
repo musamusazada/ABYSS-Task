@@ -128,3 +128,10 @@ body {
   transform: translateX(-50%);
   background-color: var(--light-gray);
 }
+
+.edit-input {
+  background: #fff;
+  color: #000;
+  border: 1px solid var(--light-gray);
+  padding: 10px;
+}

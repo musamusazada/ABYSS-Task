@@ -57,8 +57,9 @@ const Tree: React.FC<Props> = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    console.log("Update Happened");
+    console.log(treeData);
   }, [treeData]);
+
   return (
     <div
       style={{
@@ -75,7 +76,7 @@ const Tree: React.FC<Props> = (props: Props) => {
         isReadOnly={treeData.isReadOnly}
         create={treeData.create}
       />
-      {treeData.categories.length > 0 &&
+      {treeData.categories?.length > 0 &&
         treeData.categories.map((el: TreeItemType) => (
           <TreeItem
             treeData={treeData}
