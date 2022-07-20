@@ -7,8 +7,10 @@ type Props = {};
 interface TreeItemType {
   id: number;
   title: string;
-  isReadOnly: boolean;
+  isSub: boolean;
   color: string;
+  isReadOnly: boolean;
+  children: [];
   create: boolean;
   update: boolean;
   delete: boolean;
@@ -23,7 +25,10 @@ const Tree: React.FC<Props> = (props: Props) => {
   const [treeData, setTreeData] = useState({
     title: "Categories",
     isReadOnly: true,
+    isSub: false,
+    color: "#fff",
     create: true,
+    children: [],
     categories: [],
   });
 
@@ -56,37 +61,45 @@ const Tree: React.FC<Props> = (props: Props) => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(treeData);
-  }, [treeData]);
-
   return (
     <div
       style={{
         left: leftPos ? leftPos + "px" : "50%",
         top: topPos ? topPos + "px" : "50%",
       }}
-      className={classes.tree + " tree flex column align-middle gap-40"}
+      className={classes.tree + " tree flex column align-middle  gap-40"}
     >
-      <TreeItem
-        treeData={treeData}
-        setTreeData={setTreeData}
-        title={treeData.title}
-        classes={classes.dashed}
-        isReadOnly={treeData.isReadOnly}
-        create={treeData.create}
-      />
-      {treeData.categories?.length > 0 &&
-        treeData.categories.map((el: TreeItemType) => (
-          <TreeItem
-            treeData={treeData}
-            setTreeData={setTreeData}
-            key={el.id}
-            classes={classes.solid + " vertical-line " + el.color}
-            wrapperClass="vertical-line"
-            {...el}
-          />
-        ))}
+      <div className="tree__item--wrapper">
+        <TreeItem
+          treeData={treeData}
+          setTreeData={setTreeData}
+          isSub={treeData.isSub}
+          title={treeData.title}
+          color={treeData.color}
+          classes={classes.dashed}
+          isReadOnly={treeData.isReadOnly}
+          create={treeData.create}
+          children={[]}
+          wrapperClass={treeData.categories.length > 0 ? "justify-center" : ""}
+        />
+
+        {treeData.categories?.length > 0 ? (
+          <div className="tree__item--wrapper flex ">
+            {treeData.categories.map((el: TreeItemType) => (
+              <TreeItem
+                treeData={treeData}
+                setTreeData={setTreeData}
+                key={el.id}
+                classes={"solid " + el.color}
+                wrapperClass="tree__item"
+                {...el}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

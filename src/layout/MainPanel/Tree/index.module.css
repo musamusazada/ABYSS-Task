@@ -1,4 +1,5 @@
 .tree {
+  width: 100%;
   cursor: move !important;
   position: absolute;
   top: 50%;
@@ -12,7 +13,9 @@
   pointer-events: none;
   display: flex;
 }
-
+.tree input::placeholder {
+  color: var(--dark-gray);
+}
 .tree p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   user-select: none;

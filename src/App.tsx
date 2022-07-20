@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import Header from "./layout/Header";
 import Button from "./UI/Button/Button";
 import ZoomController from "./components/ZoomController";
@@ -15,12 +16,13 @@ function App() {
         title="Services"
         actions={[
           <Button
+            key={nanoid()}
             content="List View"
             classes="primary-bg"
             onClick={handleClick}
           />,
-          <Button content={centerIcon()} />,
-          <ZoomController />,
+          <Button key={nanoid()} content={centerIcon()} />,
+          <ZoomController key={nanoid()} />,
         ]}
       />
       <MainPanel />
