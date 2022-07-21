@@ -1,7 +1,5 @@
 # Category Tree
 
-ROM React Application
-
 ## Installation
 
 Use your desired package manager
