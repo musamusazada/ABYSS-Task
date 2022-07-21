@@ -195,6 +195,13 @@ body {
   height: 20px;
 }
 
+.dashed {
+  background: #fff;
+  border: 1px dashed var(--light-gray);
+  padding: 10px;
+  display: inline-flex !important;
+}
+
 .solid {
   border: none;
   padding: 10px;

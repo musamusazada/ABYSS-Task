@@ -7,21 +7,22 @@ import MainPanel from "./layout/MainPanel";
 import { Fragment } from "react";
 
 function App() {
-  const handleClick = (): void => {
-    console.log("Click works");
+  const handleCenter = () => {
+    const tree = document.querySelector(".tree") as HTMLDivElement;
+    tree.style.left = "50%";
+    tree.style.top = "50%";
   };
   return (
     <Fragment>
       <Header
         title="Services"
         actions={[
+          <Button key={nanoid()} content="List View" classes="primary-bg" />,
           <Button
             key={nanoid()}
-            content="List View"
-            classes="primary-bg"
-            onClick={handleClick}
+            content={centerIcon()}
+            onClick={handleCenter}
           />,
-          <Button key={nanoid()} content={centerIcon()} />,
           <ZoomController key={nanoid()} />,
         ]}
       />

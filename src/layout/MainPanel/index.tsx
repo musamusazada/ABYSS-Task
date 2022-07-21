@@ -1,13 +1,13 @@
 import React from "react";
 import PanControls from "./PanControls/index";
-import Tree from "./Tree";
+import BTree from "./B-Tree";
 type Props = {};
 
 const MainPanel = (props: Props) => {
   return (
     <div className="panel pos-rel h-90vh">
       <PanControls />
-      <Tree />
+      <BTree />
     </div>
   );
 };
